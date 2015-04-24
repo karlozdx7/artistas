@@ -1,0 +1,30 @@
+<%= form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="row"> 
+		<div class="small-4 column">
+		
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, :class => "validate[required]" %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.text_field :sexo, :class => "validate[required]" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar',:class => 'button small' %>
+  </div>
+  </div>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+    <ul class="title-area">
+        <li class="name">
+            <h1 style="color:#ffffff"> Aplicacion</h1>
+        </li>
+    </ul>
+    
+    <section class="top-bar-section" >
+        <ul class="left">
+            <li class="has-dropdown not-click"><a href="#">MENÚ</a>
+                <ul class="dropdown" >
+                    <li class="parent-link show-for-small-only"><a class="parent-link js-generated" href="#">Formato</a></li>
+                    <li><label>Secciones</label></li>
+                    <li><%=link_to 'Artistas', controller: '/artists', action: 'index' %> </li>
+                    <li><%=link_to 'Discos', controller: '/discs', action: 'index' %> </li>
+                    
+                </ul>
+            </li>
+        </ul>
+        
+		<ul class="right">
+            <%if user_signed_in? %>
+            <li><a>Bienvenido(a) <%= current_user.email %></a></li>
+            <li><%= link_to "Editar", edit_user_registration_path %></li>
+            <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete,  :class => 'navbar-link' %></li>
+            <li> <%= link_to 'Nuevo Artista', new_artist_path %></li>
+            
+            
+            
+            <% else %>
+            <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+            <li><%= link_to "Registrate", new_user_registration_path %></li>
+            <% end %>
+        
+        
+        <!--Es para dividir -->
+        <li class="divider"></li>
+            </ul>
+       
+           
+    </section>
+</nav>

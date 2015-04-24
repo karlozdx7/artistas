@@ -1,0 +1,37 @@
+<%= form_for(@disc) do |f| %>
+  <% if @disc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disc.errors.count, "error") %> prohibited this disc from being saved:</h2>
+
+      <ul>
+      <% @disc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="row"> 
+		<div class="small-4 column">
+  <div class="field">
+    <%= f.label :artist_id %><br>
+    <%= f.number_field :artist_id %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo, :class => "validate[required]" %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.text_field :fecha, :class => "validate[required]" %>
+  </div>
+  <div class="field">
+    <%= f.label :genero %><br>
+    <%= f.text_field :genero, :class => "validate[required]" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar',:class => 'button small' %>
+  </div>
+  </div>
+  </div>
+<% end %>
